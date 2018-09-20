@@ -19,8 +19,8 @@ Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
-Route::get('/create', 'CreateUserController@index')->name('create');
+Route::get('/create', 'UserController@create')->name('create');
 
-Route::get('/list', 'ListUserController@index')->name('list');
+Route::get('/list', 'UserController@list')->name('list');
 
-Route::post('/create', 'CreateUserController@createUser');
+Route::post('/create', 'UserController@createUser');

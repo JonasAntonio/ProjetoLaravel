@@ -49,6 +49,10 @@
                 font-size: 84px;
             }
 
+            .subtitle {
+                font-size: 52px;
+            }
+
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
@@ -79,7 +83,11 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    App Masters
+                </div>
+
+                <div class="subtitle m-b-md">
+                    Estagiário PHP
                 </div>
 
                 <div class="links">

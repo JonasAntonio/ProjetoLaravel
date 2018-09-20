@@ -6,15 +6,20 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 
-class CreateUserController extends Controller
+class UserController extends Controller
 {
     
     public function __construct() {
         $this->middleware('auth');
     }
 
-    public function index() {
+    public function create() {
         return view('create-user');
+    }
+
+    public function list() {
+        $users = User::all();
+        return view('list-user', ['users'=>$users]);
     }
 
     protected function createUser(Request $request)
