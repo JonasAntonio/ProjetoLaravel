@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
+
+Route::get('/create', 'CreateUserController@index')->name('create');
+
+Route::get('/list', 'ListUserController@index')->name('list');
+
+Route::post('/create', 'CreateUserController@createUser');

@@ -8,7 +8,13 @@ use App\User;
 
 class UserApiController extends Controller
 {
-    public function userData($id){
+
+    public function userData($id) {
         return new UsersResource(User::find($id));
     }
+
+    public function addUser() {
+        
+    }
+
 }

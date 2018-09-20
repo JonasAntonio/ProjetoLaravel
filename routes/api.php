@@ -20,3 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/users/{id}', 'UserApiController@userData');
+
+Route::post('/users/add/', 'UserApiController@addUser');
