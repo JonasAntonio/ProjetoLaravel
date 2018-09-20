@@ -25,6 +25,7 @@
                             </tbody>
                         </thead>
                     </table>
+                    <a class="btn btn-primary" href="{{ route('create') }}">Create New Users</a>
                 </div>
             </div>
         </div>
