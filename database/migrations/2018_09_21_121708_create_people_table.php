@@ -15,7 +15,7 @@ class CreatePeopleTable extends Migration
     {
         Schema::create('people', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('birth_year');
             $table->string('eye_color');
             $table->string('gender');
@@ -23,8 +23,8 @@ class CreatePeopleTable extends Migration
             $table->string('height');
             $table->string('mass');
             $table->string('skin_color');
-            $table->string('homeworld');
-            $table->string('url');
+            $table->string('homeworld')->nullable();
+            $table->string('url')->unique();
             $table->string('created');
             $table->string('edited');
             $table->timestamps();

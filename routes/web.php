@@ -24,3 +24,4 @@ Route::get('/create', 'UserController@create')->name('create');
 Route::get('/list', 'UserController@list')->name('list');
 
 Route::post('/create', 'UserController@createUser');
+

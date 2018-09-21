@@ -29,3 +29,6 @@ Route::post('/people/add/', 'PeopleApiController@addPeople');
 
 Route::get('/people', 'PeopleApiController@listAll')->name('people');
 
+Route::get('/people/{id}', 'PeopleApiController@listById');
+
+Route::get('/test', 'PeopleApiController@test');
