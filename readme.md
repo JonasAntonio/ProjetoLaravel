@@ -13,6 +13,8 @@
 
 <p>As dependências deste projeto estão descritas no arquivo <a href="composer.json">composer.json</a></p>
 
+<p>Obs: É necessário modificar o arquivo Endpoint.php conforme o <a href="https://github.com/frankwkw/swapi-php/commit/d066108ed7d7b9dd0653d48b37b2390f1a30d8f5">link</a> para que a rota /api/people/add funcione corretamente.</p>
+
 <p>Para testar a aplicação <a href="http://projetolaraveljv.herokuapp.com">clique aqui</a>. Faça o login com este email: 'admin@admin.com' e esta senha 'adminadmin'. Ela está hospedada na <a href="https://www.heroku.com/">Heroku</a> e o banco de dados está hospedado no <a href="db4free.net">db4free.net</a>.</p>
 
 ## Project developed as PHP Internship selection process at App Masters.
@@ -29,5 +31,7 @@
 <p><strong>Postman:</strong> A Google Chrome’s plugin used to test the requests at /api/users/add/ route.</p>
 
 <p>All the dependencies are described at <a href="composer.json">composer.json</a></p>
+
+<p>Ps: It's necessary to modify the file Endpoint.php like the <a href="https://github.com/frankwkw/swapi-php/commit/d066108ed7d7b9dd0653d48b37b2390f1a30d8f5">link</a> to make the route /api/people/add work correctly.</p>
 
 <p>To test the application <a href="http://projetolaraveljv.herokuapp.com">click here</a>. Login with this email: 'admin@admin.com' and with this password 'adminadmin'. It is hosted at <a href="https://www.heroku.com/">Heroku</a> and the database is hosted at <a href="db4free.net">db4free.net</a>.</p>
