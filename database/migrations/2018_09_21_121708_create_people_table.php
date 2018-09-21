@@ -24,9 +24,7 @@ class CreatePeopleTable extends Migration
             $table->string('mass');
             $table->string('skin_color');
             $table->string('homeworld')->nullable();
-            $table->string('url')->unique();
-            $table->string('created');
-            $table->string('edited');
+            $table->string('url')->unique()->nullable();
             $table->timestamps();
         });
     }

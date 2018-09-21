@@ -25,3 +25,8 @@ Route::get('/list', 'UserController@list')->name('list');
 
 Route::post('/create', 'UserController@createUser');
 
+Route::get('/people', 'PeopleController@list')->name('people');
+
+Route::get('/people/add', 'PeopleController@add')->name('/people/add');
+
+Route::post('/people/add', 'PeopleController@addPeople');

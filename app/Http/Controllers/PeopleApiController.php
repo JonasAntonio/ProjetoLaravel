@@ -13,26 +13,6 @@ class PeopleApiController extends Controller
         
     }
 
-    public function test() {
-        $swapi = new SWAPI;
-
-        // Iterate through all pages of people
-        do {
-            if (!isset($people)) {
-                $people = $swapi->characters()->index();
-            } else {
-                // The getNext, getPrevious of Collection indicate whether more pages follow
-                $people = $people->getNext();
-            }
-
-            foreach ($people as $person) {
-                echo sprintf("%s %s\n", $person->homeworld->name, $person->name);
-            }
-        } while ($people->hasNext());
-
-                
-    }
-
     public function addPeople() { //getting from swapi-php library
         $swapi = new SWAPI;
         $person = new People();
@@ -57,8 +37,8 @@ class PeopleApiController extends Controller
                     'skin_color' => $p->skin_color,
                     'homeworld' => $p->homeworld->name,
                     'url' => $p->url,
-                    'created' => $p->created,
-                    'edited' => $p->edited
+                    'created_at' => $p->created,
+                    'updated_at' => $p->edited
                 ];
                 People::create($person); //insert into database
             }
