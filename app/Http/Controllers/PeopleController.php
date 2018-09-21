@@ -21,7 +21,7 @@ class PeopleController extends Controller
         return view('create-people');
     }
 
-    public function addPerson(Request $request) {
+    public function addPeople(Request $request) {
         $errors = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:people',
             'birth_year' => 'required|string|max:255',
@@ -49,9 +49,7 @@ class PeopleController extends Controller
                 'mass' => $request['mass'],
                 'skin_color' => $request['skin_color'],
                 'homeworld' => $request['homeworld'],
-                'url' => $request['url'],
-                'created' => $request['created'],
-                'edited' => $request['edited']
+                'url' => $request['url']
             ]);
             return redirect('/people');
         }
