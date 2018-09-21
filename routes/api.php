@@ -2,7 +2,9 @@
 
 use Illuminate\Http\Request;
 use App\Http\Resources\UsersResource;
+use App\Http\Resources\PeopleResource;
 use App\User;
+use App\People;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/users/{id}', 'UserApiController@userData');
 
 Route::post('/users/add/', 'UserApiController@addUser');
+
+Route::post('/people/add/', 'PeopleApiController@addPeople');
+
+Route::get('/people', 'PeopleApiController@listAll')->name('people');
+
