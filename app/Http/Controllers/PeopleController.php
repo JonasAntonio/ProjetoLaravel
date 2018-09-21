@@ -37,7 +37,7 @@ class PeopleController extends Controller
         ]);
 
         if($errors->fails()){
-            return redirect('create')->withErrors($errors)->withInput();
+            return redirect('/people/add')->withErrors($errors)->withInput();
         } else {
             People::create([
                 'name' => $request['name'],
