@@ -25,8 +25,12 @@ Route::get('/users/{id}', 'UserApiController@userData');
 
 Route::post('/users/add/', 'UserApiController@addUser');
 
+Route::get('/people', 'PeopleApiController@listAll');
+
+Route::get('/people/{id}', 'PeopleApiController@peopleData');
+
 Route::post('/people/add/', 'PeopleApiController@addPeople');
 
 Route::get('/people/order/{order}', 'PeopleApiController@orderByCollumn');
 
-Route::get('/people/q/{term}', 'PeopleApiController@termSearch');
+Route::get('/people/q/{term}', 'PeopleApiController@searchTerm');

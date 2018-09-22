@@ -13,7 +13,15 @@ class PeopleApiController extends Controller
         
     }
 
-    public function addPeople() { //getting from swapi-php library
+    public function listAll() {
+        return People::all();
+    }
+
+    public function peopleData($id) {
+        return People::find($id);
+    }
+
+    public function addPeople() { 
         $swapi = new SWAPI;
         $person = new People();
 
@@ -49,7 +57,7 @@ class PeopleApiController extends Controller
         return People::orderBy($order)->get();
     }
 
-    public function termSearch($term) {
+    public function searchTerm($term) {
         return People::
             where('name', 'LIKE', "%$term%")
             ->orWhere('birth_year', 'LIKE', "%$term%")
@@ -65,5 +73,6 @@ class PeopleApiController extends Controller
             ->orWhere('updated_at', 'LIKE', "%$term%")
             ->get();
     }
+    
 
 }
