@@ -3,8 +3,13 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
+        
+            <span class="text-primary mb-4">
+                <strong>{{ session()->get('message') }}</strong>
+            </span>
+        
         <div class="col">
-            <div class="card">
+            <div class="card" style="width: 60rem;">
                 <div class="card-header">Stored People</div>
                 <a class="btn btn-primary " href="{{ route('/people/add') }}">Create Person</a>
                 <div class="card-body">
@@ -22,6 +27,7 @@
                                 <th scope="col">Skin Color</th>
                                 <th scope="col">Homeworld</th>
                                 <th scope="col">URL</th>
+                                <th scope="col">Action</th>
                             </tr>
                             <tbody class="table tbody">
                                 @foreach($people as $person)
@@ -37,6 +43,17 @@
                                         <td>{{ $person -> skin_color }}</td>
                                         <td>{{ $person -> homeworld }}</td>
                                         <td><a href="{{ $person -> url }}">{{ $person -> url }}</a></td>
+                                        <td>
+                                            <a class="btn btn-primary w-100" href="{{ route('/people/edit/{id}', $person->id) }}" >
+                                                Edit
+                                            </a>
+                                            <form method="POST" action="{{ route('/people/delete/{id}', $person->id)}}"
+                                             onsubmit="return confirm('Are you sure about deleting $person->name?')">
+                                             {{method_field('DELETE')}}
+                                                <button class="btn btn-primary w-100" type="submit">Delete</button>
+                                            </form>
+                                            
+                                        </td>
                                     </tr>
                                 @endforeach
                             </tbody>
@@ -48,4 +65,12 @@
         </div>
     </div>
 </div>
+<script>
+    function delete() {
+        var ok = confirm("Are you sure about deleting {{ $person->name }}?");
+        if(ok === true){
+            innerHTML = "Ok";
+        }
+    }
+<script>
 @endsection

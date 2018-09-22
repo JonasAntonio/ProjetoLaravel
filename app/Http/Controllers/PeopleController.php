@@ -21,6 +21,29 @@ class PeopleController extends Controller
         return view('create-people');
     }
 
+    public function edit($id) {
+        $person = People::findOrFail($id);
+        return view('edit-people', compact('person'));
+    }
+
+    public function editPerson(Request $request, $id) {
+        $person = People::find($id);
+        $person->name = $request['name'];
+        $person->birth_year = $request['birth_year'];
+        $person->eye_color = $request['eye_color']; 
+        $person->gender = $request['gender']; 
+        $person->hair_color = $request['hair_color'];
+        $person->height = $request['height'];
+        $person->mass = $request['mass'];
+        $person->skin_color = $request['skin_color'];
+        $person->homeworld = $request['homeworld'];
+        $person->url = $request['url'];
+        $person->save();
+        $message = $person->name." has been successfully edited";
+        //return view('list-people', ['message'=>$message]);
+        return redirect()->route('people')->with('message', $message);
+    }
+
     public function addPeople(Request $request) {
         $errors = Validator::make($request->all(), [
             'name' => 'required|string|max:255|unique:people',
@@ -32,8 +55,7 @@ class PeopleController extends Controller
             'mass' => 'required|string|max:255',
             'skin_color' => 'required|string|max:255',
             'homeworld' => 'string|max:255',
-            'url' => 'required|string|max:255|unique:people',
-
+            'url' => 'string|max:255|unique:people',
         ]);
 
         if($errors->fails()){
@@ -53,5 +75,9 @@ class PeopleController extends Controller
             ]);
             return redirect('/people');
         }
+    }
+
+    public function delete($id) {
+        $person = People::findOrFail($id);
     }
 }

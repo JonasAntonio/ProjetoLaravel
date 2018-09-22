@@ -30,3 +30,9 @@ Route::get('/people', 'PeopleController@list')->name('people');
 Route::get('/people/add', 'PeopleController@add')->name('/people/add');
 
 Route::post('/people/add', 'PeopleController@addPeople');
+
+Route::get('/people/edit/{id}', 'PeopleController@edit')->name('/people/edit/{id}');
+
+Route::post('/people/edit/{id}', 'PeopleController@editPerson');
+
+Route::post('/people/delete/{id}', 'PeopleController@deletePerson');
