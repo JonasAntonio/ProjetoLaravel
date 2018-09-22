@@ -40,7 +40,6 @@ class PeopleController extends Controller
         $person->url = $request['url'];
         $person->save();
         $message = $person->name." has been successfully edited";
-        //return view('list-people', ['message'=>$message]);
         return redirect()->route('people')->with('message', $message);
     }
 
@@ -73,14 +72,17 @@ class PeopleController extends Controller
                 'homeworld' => $request['homeworld'],
                 'url' => $request['url']
             ]);
-            return redirect('/people');
+            $message = $request->name." has been successfully added";
+        return redirect()->route('people')->with('message', $message);
         }
     }
 
     public function delete($id) {
         $person = People::find($id);
-        $person->delete();
+        
 
-        return redirect('/people');
+        $message = $person->name." has been successfully deleted";
+        $person->delete();
+        return redirect()->route('people')->with('message', $message);
     }
 }

@@ -44,13 +44,13 @@
                                         <td>{{ $person -> homeworld }}</td>
                                         <td><a href="{{ $person -> url }}">{{ $person -> url }}</a></td>
                                         <td>
-                                            <a class="btn btn-primary w-100" href="{{ route('/people/edit/{id}', $person->id) }}" >
+                                            <a class="btn btn-default w-100" href="{{ route('/people/edit/{id}', $person->id) }}" >
                                                 Edit
                                             </a>
                                             <form method="get" action="{{ route('/people/delete/{id}', $person->id)}}"
                                              onsubmit="return confirm('Are you sure about deleting {{$person->name}}?')">
                                              {{method_field('DELETE')}}{{ csrf_field() }}
-                                                <button class="btn btn-primary w-100" type="submit">Delete</button>
+                                                <button class="btn btn-link w-100" type="submit">Delete</button>
                                             </form>
                                             
                                         </td>
