@@ -47,9 +47,9 @@
                                             <a class="btn btn-primary w-100" href="{{ route('/people/edit/{id}', $person->id) }}" >
                                                 Edit
                                             </a>
-                                            <form method="POST" action="{{ route('/people/delete/{id}', $person->id)}}"
-                                             onsubmit="return confirm('Are you sure about deleting $person->name?')">
-                                             {{method_field('DELETE')}}
+                                            <form method="get" action="{{ route('/people/delete/{id}', $person->id)}}"
+                                             onsubmit="return confirm('Are you sure about deleting {{$person->name}}?')">
+                                             {{method_field('DELETE')}}{{ csrf_field() }}
                                                 <button class="btn btn-primary w-100" type="submit">Delete</button>
                                             </form>
                                             
@@ -65,12 +65,4 @@
         </div>
     </div>
 </div>
-<script>
-    function delete() {
-        var ok = confirm("Are you sure about deleting {{ $person->name }}?");
-        if(ok === true){
-            innerHTML = "Ok";
-        }
-    }
-<script>
 @endsection

@@ -35,4 +35,4 @@ Route::get('/people/edit/{id}', 'PeopleController@edit')->name('/people/edit/{id
 
 Route::post('/people/edit/{id}', 'PeopleController@editPerson');
 
-Route::post('/people/delete/{id}', 'PeopleController@deletePerson');
+Route::get('/people/delete/{id}', 'PeopleController@delete')->name('/people/delete/{id}');
