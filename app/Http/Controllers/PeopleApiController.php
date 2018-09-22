@@ -45,36 +45,25 @@ class PeopleApiController extends Controller
         } while ($people->hasNext());
     }
 
-
-    /*
-    public function addPeople() { getting from api link
-        $json = file_get_contents("https://swapi.co/api/people/?format=json");
-        /*
-            This link https://swapi.co/api/people/?format=json 
-            brings just 10 registers from SWAPI database
-        
-        $json_data = json_decode($json, true);
-
-        $person = new People();
-
-        for($i=0; $i<count($json_data["results"]); $i++){
-            $person = [
-                'name' => $json_data["results"][$i]["name"], 
-                'birth_year' => $json_data["results"][$i]["birth_year"], 
-                'eye_color' => $json_data["results"][$i]["eye_color"], 
-                'gender' => $json_data["results"][$i]["gender"], 
-                'hair_color' => $json_data["results"][$i]["hair_color"],
-                'height' => $json_data["results"][$i]["height"],
-                'mass' => $json_data["results"][$i]["mass"],
-                'skin_color' => $json_data["results"][$i]["skin_color"],
-                'homeworld' => $json_data["results"][$i]["homeworld"],
-                'url' => $json_data["results"][$i]["url"],
-                'created' => $json_data["results"][$i]["created"],
-                'edited' => $json_data["results"][$i]["edited"]
-            ];
-
-            People::create($person);
-        }
+    public function orderByCollumn($order) {
+        return People::orderBy($order)->get();
     }
-    */
+
+    public function termSearch($term) {
+        return People::
+            where('name', 'LIKE', "%$term%")
+            ->orWhere('birth_year', 'LIKE', "%$term%")
+            ->orWhere('eye_color', 'LIKE', "%$term%")
+            ->orWhere('gender', 'LIKE', "%$term%")
+            ->orWhere('hair_color', 'LIKE', "%$term%")
+            ->orWhere('height', 'LIKE', "%$term%")
+            ->orWhere('mass', 'LIKE', "%$term%")
+            ->orWhere('skin_color', 'LIKE', "%$term%")
+            ->orWhere('homeworld', 'LIKE', "%$term%")
+            ->orWhere('url', 'LIKE', "%$term%")
+            ->orWhere('created_at', 'LIKE', "%$term%")
+            ->orWhere('updated_at', 'LIKE', "%$term%")
+            ->get();
+    }
+
 }

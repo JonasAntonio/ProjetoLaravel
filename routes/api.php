@@ -27,8 +27,6 @@ Route::post('/users/add/', 'UserApiController@addUser');
 
 Route::post('/people/add/', 'PeopleApiController@addPeople');
 
-Route::get('/people', 'PeopleApiController@listAll')->name('people');
+Route::get('/people/order/{order}', 'PeopleApiController@orderByCollumn');
 
-Route::get('/people/{id}', 'PeopleApiController@listById');
-
-Route::get('/test', 'PeopleApiController@test');
+Route::get('/people/q/{term}', 'PeopleApiController@termSearch');
